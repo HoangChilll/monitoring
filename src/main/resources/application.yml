@@ -1,0 +1,48 @@
+spring:
+  jwt:
+
+    secret: ${JWT_SECRET:Y2hhbmdlLW1lLWluLXByb2R1Y3Rpb24tdGhpcy1pcy1hLWZha2UtdmFsdWU=}
+    expiration-ms: 86400000
+  application:
+    name: monitoring
+
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/monitoring
+    username: monitoring
+    password: monitoring123
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+server:
+  port: 8080
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+
+
+logging:
+  level:
+    root: INFO
+    com.hoang.monitoring: DEBUG
