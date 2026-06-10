@@ -1,4 +1,18 @@
 spring:
+  mail:
+    host: ${MAIL_HOST:sandbox.smtp.mailtrap.io}
+    port: ${MAIL_PORT:2525}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
   threads:
     virtual:
       enabled: true
@@ -48,3 +62,9 @@ logging:
 jwt:
   secret: ${JWT_SECRET:Y2hhbmdlLW1lLWluLXByb2R1Y3Rpb24tdGhpcy1pcy1hLWZha2UtdmFsdWU=}
   expiration-ms: 86400000
+app:
+  alert:
+    from: ${MAIL_FROM:no-reply@monitoring.local}
+    telegram:
+      bot-token: ${TELEGRAM_BOT_TOKEN:}
+      api-base: https://api.telegram.org

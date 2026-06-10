@@ -5,11 +5,12 @@ import com.hoang.monitoring.entity.Website;
 import lombok.Builder;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.Instant;
 
 @Data
 @Builder
-public class WebsiteResponse {
+public class WebsiteResponse implements Serializable {
     private Long id;
     private String name;
     private String url;
@@ -21,7 +22,7 @@ public class WebsiteResponse {
     private Instant lastCheckedAt;
     private Instant createdAt;
     private Instant updatedAt;
-
+    private static final long serialVersionUID = 1L;
     public static WebsiteResponse from(Website w) {
         return WebsiteResponse.builder()
                 .id(w.getId())
