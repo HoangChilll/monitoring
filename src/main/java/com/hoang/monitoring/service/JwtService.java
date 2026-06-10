@@ -29,11 +29,11 @@ public class JwtService {
     public String generateToken(UserDetails user) {
         Date now = new Date();
         return Jwts.builder()
-                .subject(user.getUsername())
-                .issuedAt(now)
-                .expiration(new Date(now.getTime() + expirationMs))
-                .signWith(key())
-                .compact();
+                .subject(user.getUsername()) // tên người dùng
+                .issuedAt(now) // thời điểm tạo
+                .expiration(new Date(now.getTime() + expirationMs)) // hết hạn lúc
+                .signWith(key()) //ký token
+                .compact();//hoàn tất
     }
 
     public String extractUsername(String token) {

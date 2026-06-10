@@ -9,5 +9,6 @@ import java.util.List;
 @Repository
 public interface WebsiteRepository extends JpaRepository<Website, Long> {
     List<Website> findByUserId(Long userId);
-    List<Website> findByEnabledTrue();    // Lấy site cần check (Phase 5)
+    List<Website> findByEnabledTrue();
+    List<Website> findAllByEnabledTrue();// Lấy site cần check (Phase 5)
 }

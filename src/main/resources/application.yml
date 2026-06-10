@@ -1,8 +1,7 @@
 spring:
-  jwt:
-
-    secret: ${JWT_SECRET:Y2hhbmdlLW1lLWluLXByb2R1Y3Rpb24tdGhpcy1pcy1hLWZha2UtdmFsdWU=}
-    expiration-ms: 86400000
+  threads:
+    virtual:
+      enabled: true
   application:
     name: monitoring
 
@@ -46,3 +45,6 @@ logging:
   level:
     root: INFO
     com.hoang.monitoring: DEBUG
+jwt:
+  secret: ${JWT_SECRET:Y2hhbmdlLW1lLWluLXByb2R1Y3Rpb24tdGhpcy1pcy1hLWZha2UtdmFsdWU=}
+  expiration-ms: 86400000
